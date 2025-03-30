@@ -8,43 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen">
-    
-    <script>
-       function updateClock() {
-    const clockElement = document.getElementById('clock');
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    clockElement.textContent = `${hours}:${minutes}:${seconds}`;
-}
-setInterval(updateClock, 1000);
-updateClock(); // Initialize clock immediately
-
-function setAlarm() {
-    const alarmTime = document.getElementById('alarmTime').value;
-    const alarmStatus = document.getElementById('alarmStatus');
-    if (alarmTime) {
-        alarmStatus.textContent = `Alarm set for ${alarmTime}`;
-        const alarmDate = new Date();
-        const [hours, minutes] = alarmTime.split(':');
-        alarmDate.setHours(hours, minutes, 0, 0);
-        const now = new Date();
-        const timeToAlarm = alarmDate.getTime() - now.getTime();
-        if (timeToAlarm >= 0) {
-            setTimeout(() => {
-                alert('Alarm ringing!');
-                alarmStatus.textContent = '';
-            }, timeToAlarm);
-        } else {
-            alarmStatus.textContent = 'Please set a future time for the alarm.';
-        }
-    } else {
-        alarmStatus.textContent = 'Please select a valid time.';
-    }
-}
-    </script>
-
     <div id="clock" class="text-3xl font-mono mb-6"></div>
     
     <div class="mb-6">
@@ -60,7 +23,6 @@ function setAlarm() {
     <p class="text-lg text-center">Could be used to research the effect of mental stimulation in response to sleep.</p>
     <h2 class="text-2xl font-bold mb-4">To-Do</h2>
     <ul class="text-lg text-center mb-2">
-        <li> Digital Clock</li>
         <li> Trivia Challenges(Based on user interest), should not take a lot of time to solve</li>
         <li> Ringing till the challengeg is solved</li>
         <li> Success Message</li>
