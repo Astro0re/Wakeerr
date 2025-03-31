@@ -51,3 +51,74 @@ function triggerAlarm() {
     // TODO: Add trivia challenge here
     document.getElementById('alarmStatus').textContent = '';
 }
+
+// Store tasks in localStorage to persist data
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+// Function to save tasks to localStorage
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Add a new task
+function addTask() {
+    const input = document.getElementById('taskInput');
+    const task = input.value.trim();
+    
+    if (task) {
+        tasks.push({
+            id: Date.now(),  // Unique ID for each task
+            text: task,
+            completed: false
+        });
+        input.value = '';
+        saveTasks();
+        renderTasks();
+    }
+}
+
+// Toggle task completion status
+function toggleTask(id) {
+    tasks = tasks.map(task => 
+        task.id === id ? {...task, completed: !task.completed} : task
+    );
+    saveTasks();
+    renderTasks();
+}
+
+// Delete a task
+function deleteTask(id) {
+    tasks = tasks.filter(task => task.id !== id);
+    saveTasks();
+    renderTasks();
+}
+
+// Render all tasks to the DOM
+function renderTasks() {
+    const taskList = document.getElementById('taskList');
+    taskList.innerHTML = '';
+    
+    tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between p-3 bg-white rounded shadow';
+        li.innerHTML = `
+            <div class="flex items-center">
+                <input type="checkbox" 
+                       ${task.completed ? 'checked' : ''} 
+                       onclick="toggleTask(${task.id})"
+                       class="mr-3">
+                <span class="${task.completed ? 'line-through text-gray-500' : ''}">
+                    ${task.text}
+                </span>
+            </div>
+            <button onclick="deleteTask(${task.id})" 
+                    class="text-red-500 hover:text-red-700">
+                Delete
+            </button>
+        `;
+        taskList.appendChild(li);
+    });
+}
+
+// Initialize tasks on page load
+document.addEventListener('DOMContentLoaded', renderTasks);
