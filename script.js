@@ -11,6 +11,7 @@ updateClock(); // Initialize clock immediately
 
 let alarmTime = null;
 let alarmTimeout = null;
+let alarmSound = null;
 
 function setAlarm() {
     const timeInput = document.getElementById('alarmTime');
@@ -47,8 +48,11 @@ function setAlarm() {
 }
 
 function triggerAlarm() {
+    alarmSound = document.getElementById('alarmSound');
+    alarmSound.play();
     alert('Wake up! Time to solve a challenge!');
-    // TODO: Add trivia challenge here
+    alarmSound.pause();
+    alarmSound.currentTime = 0;
     document.getElementById('alarmStatus').textContent = '';
 }
 
