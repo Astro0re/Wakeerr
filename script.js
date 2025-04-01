@@ -66,16 +66,22 @@ function saveTasks() {
 
 // Add a new task
 function addTask() {
-    const input = document.getElementById('taskInput');
-    const task = input.value.trim();
+    const select = document.getElementById('taskInput');
+    const selectedTopic = select.value;
     
-    if (task) {
+    if (selectedTopic) {
+        // Check if topic already exists
+        if (tasks.some(task => task.text === selectedTopic)) {
+            alert('This topic is already added!');
+            return;
+        }
+        
         tasks.push({
-            id: Date.now(),  // Unique ID for each task
-            text: task,
+            id: Date.now(),
+            text: selectedTopic,
             completed: false
         });
-        input.value = '';
+        select.value = ''; // Reset selection
         saveTasks();
         renderTasks();
     }

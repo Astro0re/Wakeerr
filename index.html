@@ -21,13 +21,17 @@
     </div>
 
     <h1 class="text-4xl font-bold mb-4">Wakeerr</h1>
-    <p class="text-lg text-center mb-2">Wake up a little smarter</p>
-    <p class="text-lg text-center mb-2">Requires users to complete a mentally stimulating task(Trivia) before the alarm goes off</p>
-    <p class="text-lg text-center">Could be used to research the effect of mental stimulation in response to sleep.</p>
+    <div class="text-lg text-center mb-2">
+    <p>Wake up a little smarter</p>
+    <p>Wake your brain up</p>
+    <p>Requires users to complete a mentally stimulating task(Trivia) before the alarm goes off</p>
+    <p>Could be used to research the effect of mental stimulation in response to sleep.</p>
+    </div>
+    
     <h2 class="text-2xl font-bold mb-4">To-Do</h2>
     <ul class="text-lg text-center mb-2">
         <li> Trivia Challenges(Based on user interest), should not take a lot of time to solve</li>
-        <li> Ringing till the challengeg is solved</li>
+        <li> Ringing till the challenge is solved</li>
         <li> Success Message</li>
         <li> Topics to be sent the day before </li>
         <li>Difficulty level</li>
@@ -36,12 +40,23 @@
     </ul>
 
     <div class="w-full max-w-md p-4">
-        <h2 class="text-2xl font-bold mb-4">Tasks</h2>
+        <h2 class="text-2xl font-bold mb-4">Topics</h2>
         <div class="flex mb-4">
-            <input type="text" id="taskInput" class="flex-1 px-4 py-2 rounded-l border border-gray-300" placeholder="Add a new task">
-            <button onclick="addTask()" class="bg-green-500 text-white px-4 py-2 rounded-r hover:bg-green-600">Add</button>
+            <select id="taskInput" class="flex-1 px-4 py-2 rounded-l border border-gray-300">
+                <option value="">Select a Topic</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+                <option value="Geography">Geography</option>
+                <option value="Literature">Literature</option>
+                <option value="General Knowledge">General Knowledge</option>
+            </select>
+            <button onclick="addTask()" class="bg-green-500 text-white px-4 py-2 rounded-r hover:bg-green-600">Select</button>
         </div>
         <ul id="taskList" class="space-y-2"></ul>
+    </div>
+    <div>
+        
     </div>
 
     <audio id="alarmSound" loop>
