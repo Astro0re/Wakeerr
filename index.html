@@ -7,59 +7,64 @@
     <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 text-gray-800 flex flex-col items-center justify-center min-h-screen">
-    <div id="clock" class="text-3xl font-mono mb-6"></div>
-    
-    <div class="mb-6">
-        <input type="time" id="alarmTime" class="px-4 py-2 rounded border border-gray-300 mr-2">
-        <button onclick="setAlarm()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            Set Alarm
-        </button>
-    </div>
-    
-    <div id="alarmStatus" class="text-lg mb-6 text-green-600">
-    </div>
+<body class="bg-gray-100 text-gray-800 min-h-screen p-4">
+    <!-- Top Section (1) -->
+    <div class="grid grid-cols-1 gap-6 max-w-7xl mx-auto">
+        <section class="text-center bg-white p-8 rounded-lg shadow-lg">
+            <div id="clock" class="text-6xl font-mono mb-8"></div>
+            <div class="mb-8">
+                <input type="time" id="alarmTime" class="px-6 py-3 text-xl rounded border border-gray-300 mr-3">
+                <button onclick="setAlarm()" class="bg-blue-500 text-white px-6 py-3 text-xl rounded hover:bg-blue-600">
+                    Set Alarm
+                </button>
+            </div>
+            <div id="alarmStatus" class="text-xl mb-8 text-green-600"></div>
+        </section>
 
-    <h1 class="text-4xl font-bold mb-4">Wakeerr</h1>
-    <div class="text-lg text-center mb-2 gap-2">
-    <p>Wake up a little smarter</p>
-    <p>Wake your brain up, and get a little smarter while your at it.</p>
-    <p>We belive the best way to wake up and stay awake is with a little excercise of the brain.</p>
-    <p>Studies have shown that the retention of knowledge after exams are not promising </p>
-    <p>Requires users to complete a mentally stimulating task(Trivia) before the alarm goes off (Kamuche & Ledman, 2005;Taylor et al., 2017) </p>
-    <p>https://www.researchgate.net/publication/228521222_Relationship_of_Time_and_Learning_Retention</p>
-    <p>Could be used to research the effect of mental stimulation in response to sleep.</p>
-    </div>
-    
-    <h2 class="text-2xl font-bold mb-4">To-Do</h2>
-    <ul class="text-lg text-center mb-2">
-        <li> Trivia Challenges(Based on user interest), should not take a lot of time to solve</li>
-        <li> Ringing till the challenge is solved</li>
-        <li> Success Message</li>
-        <li> Hints of the topic/subject will be sent the day prior  </li>
-        <li>Difficulty level (Baby, Normal, Hard, Genius)</li>
-        <li>PDF upload to generate questions, to help studying/test preperations (AI integration)</li>
-        <li></li>
-    </ul>
+        <!-- Middle Section (2) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <section class="bg-white p-6 rounded-lg shadow">
+                <h1 class="text-4xl font-bold mb-4">Wakeerr</h1>
+                <div class="text-lg space-y-2">
+                    <p>Wake up a little smarter</p>
+                    <p>Wake your brain up, and get a little smarter while your at it.</p>
+                    <p>We belive the best way to wake up and stay awake is with a little excercise of the brain.</p>
+                    <p>Studies have shown that the retention of knowledge after exams are not promising</p>
+                    <p>This app requires users to complete a mentally stimulating task(Trivia) before the alarm goes off (Kamuche & Ledman, 2005;Taylor et al., 2017)</p>
+                    <p class="text-sm text-blue-600"><a href="https://www.researchgate.net/publication/228521222_Relationship_of_Time_and_Learning_Retention" target="_blank">Research Reference</a></p>
+                </div>
+            </section>
 
-    <div class="w-full max-w-md p-4">
-        <h2 class="text-2xl font-bold mb-4">Topics</h2>
-        <div class="flex mb-4">
-            <select id="taskInput" class="flex-1 px-4 py-2 rounded-l border border-gray-300">
-                <option value="">Random</option>
-                <option value="Mathematics">Mathematics</option>
-                <option value="Science">Science</option>
-                <option value="History">History</option>
-                <option value="Geography">Geography</option>
-                <option value="Literature">Literature</option>
-                <option value="General Knowledge">General Knowledge</option>
-            </select>
-            <button onclick="addTask()" class="bg-green-500 text-white px-4 py-2 rounded-r hover:bg-green-600">Select</button>
+            <section class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-2xl font-bold mb-4">To-Do</h2>
+                <ul class="text-lg space-y-2">
+                    <li>Trivia Challenges(Based on user interest), should not take a lot of time to solve</li>
+                    <li>Ringing till the challenge is solved</li>
+                    <li>Success Message</li>
+                    <li>Hints of the topic/subject will be sent the day prior</li>
+                    <li>Difficulty level (Baby, Normal, Hard, Genius)</li>
+                    <li>PDF upload to generate questions, to help studying/test preperations (AI integration)</li>
+                </ul>
+            </section>
         </div>
-        <ul id="taskList" class="space-y-2"></ul>
-    </div>
-    <div>
-        
+
+        <!-- Bottom Section (1) -->
+        <section class="bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-4">Topics</h2>
+            <div class="flex mb-4">
+                <select id="taskInput" class="flex-1 px-4 py-2 rounded-l border border-gray-300">
+                    <option value="">Random</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Literature">Literature</option>
+                    <option value="General Knowledge">General Knowledge</option>
+                </select>
+                <button onclick="addTask()" class="bg-green-500 text-white px-4 py-2 rounded-r hover:bg-green-600">Select</button>
+            </div>
+            <ul id="taskList" class="space-y-2"></ul>
+        </section>
     </div>
 
     <audio id="alarmSound" loop>
