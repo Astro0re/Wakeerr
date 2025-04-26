@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -6,28 +6,87 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Sign Up</title>
         <script src="https://cdn.tailwindcss.com"></script>
-        <!--npm install tailwindcss-->
     </head>
     <body class="bg-gray-100 text-gray-800 min-h-screen p-4">
-        <section class="grid grid-cols-2 gap-1">   
-            <img src="Wakeerr Logo Concept 2.svg" alt="Logo" class="w-32 md:w-48 lg:w-64 h-auto mx-auto">
-            <div class="bg-white p-6 rounded-lg shadow gap-8">
-            <nav class=" flex flex-row gap-8 text-lg justify-center items-center">
-            <a href="index.html">Home</a>
-            </nav>
+        <main>
+            <section class="grid grid-cols-2 gap-1 p-3">   
+                <img src="Wakeerr Logo Concept 2.svg" alt="Logo" class="w-32 md:w-48 lg:w-64 h-auto mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow gap-8">
+                    <nav class="flex flex-row gap-8 text-lg justify-center items-center">
+                        <a href="index.html" class="hover:text-blue-500 transition-colors">Home</a>
+                    </nav>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 gap-6 max-w-7xl mx-auto">
+                <section class="bg-white p-8 rounded-lg shadow-lg max-w-md mx-auto w-full">
+                    <div class="text-center mb-8">
+                        <h1 class="text-3xl font-bold mb-2">Create Account</h1>
+                        <p class="text-gray-600">Join Wakeerr to start your journey</p>
+                    </div>
+
+                    <form class="space-y-6">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                placeholder="Enter your email"
+                                required
+                            >
+                        </div>
+
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                placeholder="Create a password"
+                                required
+                            >
+                        </div>
+
+                        <div>
+                            <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                            <input 
+                                type="password" 
+                                id="confirmPassword" 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                                placeholder="Confirm your password"
+                                required
+                            >
+                        </div>
+
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                id="terms" 
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                                required
+                            >
+                            <label for="terms" class="ml-2 block text-sm text-gray-700">
+                                I agree to the <a href="#" class="text-blue-500 hover:text-blue-700">Terms of Service</a> and <a href="#" class="text-blue-500 hover:text-blue-700">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button 
+                            type="submit" 
+                            class="w-full bg-blue-500 text-white py-3 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+                        >
+                            Create Account
+                        </button>
+                    </form>
+
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-600">
+                            Already have an account? 
+                            <a href="#" class="text-blue-500 hover:text-blue-700 font-medium">Sign in</a>
+                        </p>
+                    </div>
+                </section>
             </div>
-        </section>
-        
-        <section class="text-center bg-black p-8 rounded-lg shadow-lg text-white">
-            <div class="flex flex-col">
-            <a>Sign-Up/Log-in</a>
-            <form class="grid grid-cols-1 gap-8">
-            <input type="email" aria-placeholder="Email">
-            <input type="password" aria-placeholder="Password">
-            <input type="password" aria-placeholder="Repeat Password">
-            <button type="submit">SUBMIT</button>
-            </form>
-            </div>
-        </section>
+        </main>
     </body>
 </html>
