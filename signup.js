@@ -118,7 +118,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const toggleButton = document.createElement('button');
             toggleButton.type = 'button';
             toggleButton.className = 'absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500';
-            toggleButton.innerHTML = '👁️';
             toggleButton.onclick = () => togglePasswordVisibility(input);
             
             // Position the button correctly
