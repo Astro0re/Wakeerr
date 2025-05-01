@@ -17,3 +17,19 @@ CREATE TABLE Score_Info (
     FOREIGN KEY (User_ID) REFERENCES User_ID(User_ID),
     
 );
+
+-- @block
+-- Insert rows into table 'TableName'
+INSERT INTO User_ID
+( -- columns to insert data into
+ [User_ID], [User_Name], [User_Email], [User_Password]
+)
+VALUES
+( -- first row: values for the columns in the list above
+ Column1_Value, Column2_Value, Column3_Value
+),
+( -- second row: values for the columns in the list above
+ Column1_Value, Column2_Value, Column3_Value
+)
+-- add more rows here
+GO
