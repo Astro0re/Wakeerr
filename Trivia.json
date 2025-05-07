@@ -1,0 +1,123 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Film",
+      "question": "Which one of these films did David Lynch direct, but not write?",
+      "correct_answer": "The Straight Story",
+      "incorrect_answers": [
+        "Inland Empire",
+        "Lost Highway",
+        "Twin Peaks Fire Walk With Me"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Cartoon &amp; Animations",
+      "question": "Who voice acted the character Hiccup in the movie &quot;How to Train Your Dragon&quot;?",
+      "correct_answer": "Jay Baruchel",
+      "incorrect_answers": [
+        "Jack Brauchel",
+        "John Powell",
+        "Gerard Butler"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Japanese Anime &amp; Manga",
+      "question": "Which person from &quot;JoJo&#039;s Bizarre Adventure&quot; does NOT house a reference to a band, artist, or song earlier than 1980?",
+      "correct_answer": "Giorno Giovanna",
+      "incorrect_answers": [
+        "Josuke Higashikata",
+        "Jolyne Cujoh",
+        "Johnny Joestar"
+      ]
+    },
+    {
+      "type": "boolean",
+      "difficulty": "easy",
+      "category": "Entertainment: Video Games",
+      "question": "&quot;Sonic the Hedgehog 2&quot; originally was going to have a time travel system.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Entertainment: Video Games",
+      "question": "In TF2 Lore, what are the names of the Heavy&#039;s younger sisters?",
+      "correct_answer": "Yana and Bronislava",
+      "incorrect_answers": [
+        "Gaba and Anna",
+        "Yanna and Gaba",
+        "Anna and Bronislava"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Entertainment: Musicals &amp; Theatres",
+      "question": "What play is the quote &quot;Hell is other people&quot; from?",
+      "correct_answer": "No Exit",
+      "incorrect_answers": [
+        "The Devil and the Good Lord",
+        "The Condemned of Altona",
+        "The Flies"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "hard",
+      "category": "Science: Mathematics",
+      "question": "What is the derivative of Acceleration with respect to time?",
+      "correct_answer": "Jerk",
+      "incorrect_answers": [
+        "Shift",
+        "Bump",
+        "Slide"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "History",
+      "question": "When did Jamaica receive its independence from England? ",
+      "correct_answer": "1962",
+      "incorrect_answers": [
+        "1492",
+        "1963",
+        "1987"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Geography",
+      "question": "What is the capital of Belarus?",
+      "correct_answer": "Minsk",
+      "incorrect_answers": [
+        "Warsaw",
+        "Kiev",
+        "Vilnius"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "easy",
+      "category": "Entertainment: Music",
+      "question": "Whose signature guitar technique is called the &quot;windmill&quot;?",
+      "correct_answer": "Pete Townshend",
+      "incorrect_answers": [
+        "Jimmy Page",
+        "Eddie Van Halen",
+        "Jimi Hendrix"
+      ]
+    }
+  ]
+}
