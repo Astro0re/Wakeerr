@@ -7,10 +7,11 @@
     <title>Quizzes</title>
     <link rel="icon" type="image/svg+xml" href="Wakeerr Logo Concept 2.svg">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="Css_functions.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-800 min-h-screen p-4">
         <section class="flex flex-row p-5 justify-between">   
-            <a href="index.html">
+            <a href="index.html" class="p-0 justify-left">
             <img src="Wakeerr Logo Concept 2.svg" alt="Logo" class="w-16 md:w-24 lg:w-16 h-auto mx-auto"></a>
             <div class="bg-white p-6 rounded-lg shadow gap-8">
             <nav class=" flex flex-row gap-8 text-lg justify-center items-center">
@@ -67,7 +68,9 @@
                 <div>
                     <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white" id="Sci">Science</button></a>
                     <div class="hover: Sci">
-                        <p id="Sci">Physics, Chemistry, Biology and all that good stuff</p>
+                        <script>
+                             <p id="Sci">Physics, Chemistry, Biology and all that good stuff</p>
+                        </script>
                     </div>
                     
                 </div>
@@ -78,32 +81,38 @@
                 </div>
                 
                 <div>
-                    <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">General Knowledge</button></a>
+                    <a><button id="Topic" class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">General Knowledge</button></a>
+                    <script>
+                        
+                    </script>
                     <p>You really should know this</p>
                 </div>
                 
                 <div>
-                    <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Movies</button></a>
+                    <a><button id="Topic" class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Movies</button></a>
+                    <script>
+                        
+                    </script>
                     <p>Visual masterpieces</p>
                 </div>
 
                 <div>
-                    <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Music</button></a>
+                    <a><button id="Topic" class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Music</button></a>
                     <p>Audio masterpieces</p>
                 </div>
 
                 <div>
-                    <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Sports</button></a>
+                    <a><button id="Topic" class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Sports</button></a>
                     <p>Greatest i'm him moments</p>
                 </div>
 
                 <div>
-                    <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Literature</button></a>
+                    <a><button id="Topic" class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Literature</button></a>
                     <p>Great Books</p>
                 </div>
                 
                 <div>
-                    <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Random</button></a>
+                    <a><button id="Topic" class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Random</button></a>
                     <p>You never really know</p>
                 </div>
             </div>
