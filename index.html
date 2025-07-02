@@ -109,20 +109,7 @@
         <!-- Bottom Section (1) -->
         <section class="bg-white p-6 rounded-lg shadow">
             <h2 class="text-2xl font-bold mb-4">Topics</h2>
-            <div class="flex mb-4">
-                <select id="taskInput" class="flex-1 px-4 py-2 rounded-l border border-gray-300">
-                    <option value="">Random</option>
-                    <option value="Mathematics">Mathematics</option>
-                    <option value="Science">Science</option>
-                    <option value="History">History</option>
-                    <option value="Geography">Geography</option>
-                    <option value="Literature">Literature</option>
-                    <option value="General Knowledge">General Knowledge</option>
-                </select>
-                <button onclick="addTask()" class="bg-green-500 text-white px-4 py-2 rounded-r hover:bg-green-600">Select</button>
-            </div>
-            <ul id="taskList" class="space-y-2"></ul>
-            <button class="bg-green-500 text-white px-4 py-2 rounded-r hover:bg-green-600">Next</button>
+            
         
         <div class="grid grid-cols-2 lg:grid-cols-4 text-center gap-4">
             <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Science</button></a>
@@ -135,8 +122,24 @@
             <a><button class=" bg-grey-500 rounded px-4 py-2 hover:bg-blue-500 hover:text-white">Random</button></a>
         </div>
         </section>
-        <a href="https://opentdb.com/api_config.php" target="_blank">Trivia Question Api</a>
-        
+
+        <div class="bg-white p-6 rounded-lg shadow">
+            <a href="https://opentdb.com/api_config.php" target="_blank">Trivia Question Api</a>
+            <h2 class="text-2xl font-bold mb-4">Test Your wit with these practice questions</h2>
+            <div class="flex mb-4">
+                <select id="taskInput" class="flex-1 px-4 py-2 rounded-l border border-gray-300">
+                    <option value="">Random</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Science">Science</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Literature">Literature</option>
+                    <option value="General Knowledge">General Knowledge</option>
+                </select>
+                <button onclick="addTask()" class="bg-green-500 text-white px-4 py-2 rounded-r hover:bg-green-600">Select</button>
+            </div>
+        </div>
+       
         
         <!--
         Function that retirves generated api question from the site dayily and puts them in a designed cointainer
