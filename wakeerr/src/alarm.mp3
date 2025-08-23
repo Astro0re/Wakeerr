@@ -1,0 +1,4 @@
+# This is a placeholder for the alarm sound file
+# In a real implementation, you would need to provide an actual MP3 file
+# You can use any alarm sound MP3 file and rename it to alarm.mp3
+# Or replace the audio source in the HTML files with your preferred sound file
