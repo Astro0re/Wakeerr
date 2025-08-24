@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz - Wakeerr</title>
+    <link rel="icon" type="image/svg+xml" href="Wakeerr Logo Concept 2.svg">
+</head>
+<body class="bg-gray-100 text-gray-800 min-h-screen">
+    <!-- Navigation -->
+    <section class="flex flex-row p-5 justify-between">   
+        <a href="index.html">
+            <img src="Wakeerr Logo Concept 2.svg" alt="Logo" class="w-16 md:w-24 lg:w-16 h-auto mx-auto">
+        </a>
+        <div class="bg-white p-6 rounded-lg shadow gap-8">
+            <nav class="flex flex-row gap-8 text-lg justify-center items-center">
+                <a href="index.html" class="hover:text-primary-600 transition-colors">Home</a>
+                <a href="Rankings.html" class="hover:text-primary-600 transition-colors">Rankings</a>
+                <a href="Sign-Up.html" class="hover:text-primary-600 transition-colors">Sign-Up</a>
+            </nav>
+        </div>
+    </section>
+
+    <div class="max-w-7xl mx-auto p-6">
+        <!-- Header Section -->
+        <section class="bg-white p-8 rounded-lg shadow-lg text-center mb-8">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800">Wakeerr Quiz</h1>
+            <div class="text-lg space-y-2 text-gray-600">
+                <p>Check out some of our test questions</p>
+                <p>See if you have what it takes to beat the game!</p>
+            </div>
+        </section>
+
+        <!-- Difficulty Selection -->
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer" onclick="selectDifficulty('easy')">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🌱</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-4 text-green-600">Easy</h2>
+                <p class="text-gray-600">You should be able to answer these questions without much trouble</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer" onclick="selectDifficulty('medium')">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">📚</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-4 text-blue-600">Normal</h2>
+                <p class="text-gray-600">A little bit of studying needed</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer" onclick="selectDifficulty('hard')">
+                <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🔬</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-4 text-orange-600">Hard</h2>
+                <p class="text-gray-600">Research, Research, Research</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg transition-shadow cursor-pointer" onclick="selectDifficulty('genius')">
+                <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🧠</span>
+                </div>
+                <h2 class="text-2xl font-bold mb-4 text-red-600">Genius</h2>
+                <p class="text-gray-600">Good luck, you're gonna need it!</p>
+            </div>
+        </section>
+
+        <!-- Quiz Interface -->
+        <div id="quizInterface" class="hidden">
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-800">Quiz</h2>
+                    <div class="flex items-center gap-4">
+                        <span class="text-sm text-gray-600">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span></span>
+                        <span class="text-sm text-gray-600">Score: <span id="currentScore">0</span></span>
+                    </div>
+                </div>
+                
+                <div id="questionContainer" class="mb-6">
+                    <!-- Question will be populated here -->
+                </div>
+                
+                <div id="answerContainer" class="space-y-3">
+                    <!-- Answers will be populated here -->
+                </div>
+                
+                <div class="flex justify-between items-center mt-8">
+                    <button id="prevButton" onclick="previousQuestion()" class="btn-secondary hidden">
+                        Previous
+                    </button>
+                    <button id="nextButton" onclick="nextQuestion()" class="btn-primary">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topics Section -->
+        <section class="bg-white rounded-lg shadow p-8 mb-8">
+            <h2 class="text-4xl text-center mb-8 text-gray-800">Topics</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 text-center gap-6">
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="Science">Science</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Physics, Chemistry, Biology and all that good stuff
+                    </div>
+                </div>
+
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="History">History</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Hope you talked to your grandparents more
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="General Knowledge">General Knowledge</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        You really should know this
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="Movies">Movies</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Visual masterpieces
+                    </div>
+                </div>
+
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="Music">Music</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Audio masterpieces
+                    </div>
+                </div>
+
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="Sports">Sports</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Greatest "I'm him" moments
+                    </div>
+                </div>
+
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="Literature">Literature</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        Great Books
+                    </div>
+                </div>
+                
+                <div class="group">
+                    <button class="btn-secondary w-full mb-3" data-topic="Random">Random</button>
+                    <div class="text-sm text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        You never really know
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start Quiz Button -->
+        <div class="text-center mb-8">
+            <button id="startQuizBtn" onclick="startQuiz()" class="btn-primary text-2xl px-12 py-4">
+                Start Quiz
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-12">
+        <section class="bg-white p-6 m-2 rounded-lg shadow">
+            <h2 class="text-center text-3xl font-bold text-gray-800 mb-4">Contact Us</h2>
+            <p class="text-center text-gray-600 mb-6">For any inquiries, please contact us at:</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 justify-between m-5 gap-6">
+                <div class="text-center">
+                    <h3 class="font-semibold text-gray-800 mb-2">Official</h3>
+                    <p class="text-gray-600">Phone: 080-123-4567</p>
+                    <p class="text-gray-600">Email: example@gmail.com</p>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="font-semibold text-gray-800 mb-2">Socials</h3>
+                    <p class="text-gray-600 hover:text-blue-600 cursor-pointer">Instagram</p>
+                    <p class="text-gray-600 hover:text-blue-600 cursor-pointer">Twitter</p>
+                    <p class="text-gray-600 hover:text-blue-600 cursor-pointer">Facebook</p>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="font-semibold text-gray-800 mb-2">Legal</h3>
+                    <p class="text-gray-600 hover:text-blue-600 cursor-pointer">Terms</p>
+                    <p class="text-gray-600 hover:text-blue-600 cursor-pointer">Privacy</p>
+                    <p class="text-gray-600 hover:text-blue-600 cursor-pointer">Docs</p>
+                    <p class="text-gray-600 hover:text-blue-600 cursor-pointer">Help</p>
+                </div>
+            </div>
+            
+            <div class="text-center text-gray-500 pt-4 border-t border-gray-200">
+                &copy; 2025 YahWay. All rights reserved
+            </div>
+        </section>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="main.js"></script>
+    <script>
+        // Quiz state
+        let quizState = {
+            currentDifficulty: null,
+            currentTopic: null,
+            questions: [],
+            currentQuestionIndex: 0,
+            score: 0,
+            userAnswers: []
+        }
+
+        // Quiz functions
+        function selectDifficulty(difficulty) {
+            quizState.currentDifficulty = difficulty
+            
+            // Update UI to show selected difficulty
+            document.querySelectorAll('[onclick^="selectDifficulty"]').forEach(div => {
+                div.classList.remove('ring-4', 'ring-primary-500')
+            })
+            event.currentTarget.classList.add('ring-4', 'ring-primary-500')
+            
+            // Show start quiz button
+            document.getElementById('startQuizBtn').classList.remove('hidden')
+        }
+
+        function startQuiz() {
+            if (!quizState.currentDifficulty) {
+                alert('Please select a difficulty level first!')
+                return
+            }
+            
+            // Generate quiz questions
+            generateQuizQuestions()
+            
+            // Show quiz interface
+            document.getElementById('quizInterface').classList.remove('hidden')
+            document.getElementById('startQuizBtn').classList.add('hidden')
+            
+            // Display first question
+            displayQuestion()
+        }
+
+        function generateQuizQuestions() {
+            // Generate 10 questions based on difficulty
+            quizState.questions = []
+            quizState.currentQuestionIndex = 0
+            quizState.score = 0
+            quizState.userAnswers = []
+            
+            for (let i = 0; i < 10; i++) {
+                quizState.questions.push(generateQuestion(i + 1))
+            }
+            
+            updateQuizUI()
+        }
+
+        function generateQuestion(questionNumber) {
+            const difficulties = {
+                easy: { points: 1, complexity: 'simple' },
+                medium: { points: 2, complexity: 'moderate' },
+                hard: { points: 3, complexity: 'complex' },
+                genius: { points: 5, complexity: 'expert' }
+            }
+            
+            const difficulty = difficulties[quizState.currentDifficulty]
+            
+            return {
+                id: questionNumber,
+                question: `Sample question ${questionNumber} for ${quizState.currentDifficulty} difficulty`,
+                answers: [
+                    `Answer A for question ${questionNumber}`,
+                    `Answer B for question ${questionNumber}`,
+                    `Answer C for question ${questionNumber}`,
+                    `Answer D for question ${questionNumber}`
+                ],
+                correctAnswer: 0,
+                difficulty: quizState.currentDifficulty,
+                points: difficulty.points
+            }
+        }
+
+        function displayQuestion() {
+            const question = quizState.questions[quizState.currentQuestionIndex]
+            if (!question) return
+            
+            // Update question container
+            document.getElementById('questionContainer').innerHTML = `
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">${question.question}</h3>
+            `
+            
+            // Update answer container
+            document.getElementById('answerContainer').innerHTML = question.answers.map((answer, index) => `
+                <button 
+                    onclick="selectAnswer(${index})"
+                    class="w-full p-4 text-left border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors duration-200 answer-btn"
+                    data-answer="${index}"
+                >
+                    ${answer}
+                </button>
+            `).join('')
+            
+            // Update navigation buttons
+            updateNavigationButtons()
+        }
+
+        function selectAnswer(answerIndex) {
+            // Remove previous selections
+            document.querySelectorAll('.answer-btn').forEach(btn => {
+                btn.classList.remove('bg-primary-100', 'border-primary-500')
+            })
+            
+            // Highlight selected answer
+            event.currentTarget.classList.add('bg-primary-100', 'border-primary-500')
+            
+            // Store user answer
+            quizState.userAnswers[quizState.currentQuestionIndex] = answerIndex
+            
+            // Enable next button
+            document.getElementById('nextButton').disabled = false
+        }
+
+        function nextQuestion() {
+            if (quizState.currentQuestionIndex < quizState.questions.length - 1) {
+                quizState.currentQuestionIndex++
+                displayQuestion()
+            } else {
+                // Quiz completed
+                finishQuiz()
+            }
+        }
+
+        function previousQuestion() {
+            if (quizState.currentQuestionIndex > 0) {
+                quizState.currentQuestionIndex--
+                displayQuestion()
+            }
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevButton')
+            const nextBtn = document.getElementById('nextButton')
+            
+            prevBtn.classList.toggle('hidden', quizState.currentQuestionIndex === 0)
+            nextBtn.textContent = quizState.currentQuestionIndex === quizState.questions.length - 1 ? 'Finish' : 'Next'
+        }
+
+        function updateQuizUI() {
+            document.getElementById('currentQuestion').textContent = quizState.currentQuestionIndex + 1
+            document.getElementById('totalQuestions').textContent = quizState.questions.length
+            document.getElementById('currentScore').textContent = quizState.score
+        }
+
+        function finishQuiz() {
+            // Calculate final score
+            quizState.score = quizState.userAnswers.reduce((score, userAnswer, index) => {
+                const question = quizState.questions[index]
+                if (userAnswer === question.correctAnswer) {
+                    return score + question.points
+                }
+                return score
+            }, 0)
+            
+            // Show results
+            showQuizResults()
+        }
+
+        function showQuizResults() {
+            const maxScore = quizState.questions.reduce((total, question) => total + question.points, 0)
+            const percentage = Math.round((quizState.score / maxScore) * 100)
+            
+            document.getElementById('quizInterface').innerHTML = `
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Quiz Complete!</h2>
+                    <div class="text-6xl mb-6">${getScoreEmoji(percentage)}</div>
+                    <p class="text-xl text-gray-600 mb-4">Your Score: ${quizState.score}/${maxScore}</p>
+                    <p class="text-lg text-gray-600 mb-6">Percentage: ${percentage}%</p>
+                    <p class="text-gray-600 mb-8">${getScoreMessage(percentage)}</p>
+                    
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="location.reload()" class="btn-primary">
+                            Try Again
+                        </button>
+                        <button onclick="window.location.href='index.html'" class="btn-secondary">
+                            Back to Home
+                        </button>
+                    </div>
+                </div>
+            `
+        }
+
+        function getScoreEmoji(percentage) {
+            if (percentage >= 90) return '🏆'
+            if (percentage >= 80) return '🎉'
+            if (percentage >= 70) return '👍'
+            if (percentage >= 60) return '😊'
+            if (percentage >= 50) return '😐'
+            return '😅'
+        }
+
+        function getScoreMessage(percentage) {
+            if (percentage >= 90) return 'Excellent! You\'re a true genius!'
+            if (percentage >= 80) return 'Great job! You really know your stuff!'
+            if (percentage >= 70) return 'Good work! Keep it up!'
+            if (percentage >= 60) return 'Not bad! Room for improvement.'
+            if (percentage >= 50) return 'You passed! Study a bit more next time.'
+            return 'Don\'t worry, practice makes perfect!'
+        }
+
+        // Export functions for use in main.js
+        window.selectDifficulty = selectDifficulty
+        window.startQuiz = startQuiz
+        window.selectAnswer = selectAnswer
+        window.nextQuestion = nextQuestion
+        window.previousQuestion = previousQuestion
+    </script>
+</body>
+</html>
